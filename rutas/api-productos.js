@@ -40,12 +40,14 @@ router.post('/', (req, res) => {
     else {
         var id = 1
         if (arrayProductos.length > 0) {
-            id = arrayProductos[arrayProductos.length - 1].id + 1
+            id = (arrayProductos[arrayProductos.length - 1].id) + 1
         }
+
         req.body.id = id
         req.body.timestamp = getDateTime()
         arrayProductos.push(req.body)
         file("productos", "guardar", req.body)
+        
         res.send(req.body);
     }
 })

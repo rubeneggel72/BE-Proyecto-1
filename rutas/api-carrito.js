@@ -7,8 +7,8 @@ router.get('/', (req, res) => {
     let permisoAdministrador = true
     if (permisoAdministrador != administrador) { res.send({ error: 'Error: -1, decripcion: ruta: carrito/ metodo GET no autorizado' }); }
     else {
-        if (arrayProductos.length > 0) {
-            res.send(arrayProductos);
+        if (arrayCarrito.length > 0) {
+            res.send(arrayCarrito);
         }
         else {
             res.send({ error: 'No hay products cargados en carrito' });
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     else {
         let id = parseInt(req.params.id)
         let idx = getindex(id)
-        let product = arrayProductos[idx]
+        let product = arrayCarrito[idx]
         if (product != undefined) {
             res.send(product);
             return
@@ -39,13 +39,13 @@ router.post('/', (req, res) => {
     if (permisoAdministrador != administrador) { res.send({ error: 'Error: -1, decripcion: ruta: carrito/ metodo POST no autorizado' }); }
     else {
         var id = 1
-        if (arrayProductos.length > 0) {
-            id = arrayProductos[arrayProductos.length - 1].id + 1
+        if (arrayCarrito.length > 0) {
+            id = arrayCarrito[arrayCarrito.length - 1].id + 1
         }
         req.body.id = id
         req.body.timestamp = getDateTime()
-        arrayProductos.push(req.body)
-        file("productos", "guardar", req.body)
+        arrayCarrito.push(req.body)
+        file("carrito", "guardar", req.body)
         res.send(req.body);
     }
 })
@@ -56,12 +56,12 @@ router.put('/:id', (req, res) => {
     else {
         let id = parseInt(req.params.id)
         let idx = getindex(id)
-        let product = arrayProductos[idx]
+        let product = arrayCarrito[idx]
         if (product != undefined) {
             req.body.id = id
-            arrayProductos[idx] = req.body
+            arrayCarrito[idx] = req.body
             file("productos", "borrar")
-            file("productos", "crear", arrayProductos)
+            file("productos", "crear", arrayCarrito)
             res.send(req.body);
         }
         else {
@@ -76,13 +76,13 @@ router.delete('/:id', (req, res) => {
     else {
         let id = parseInt(req.params.id)
         let idx = getindex(id)
-        let product = arrayProductos[idx]
+        let product = arrayCarrito[idx]
 
         if (product != undefined) {
-            arrayProductos.splice(idx, 1);
+            arrayCarrito.splice(idx, 1);
             res.send(product);
             file("carrito", "borrar")
-            file("carrito", "crear", arrayProductos)
+            file("carrito", "crear", arrayCarrito)
             return
         }
         else {
@@ -93,13 +93,12 @@ router.delete('/:id', (req, res) => {
 
 function getindex(id) {
     var index = -1;
-    arrayProductos.filter(function (product, i) {
+    arrayCarrito.filter(function (product, i) {
         if (product.id === id) {
             index = i;
         }
     });
     return index;
-
 }
 
 module.exports = router

@@ -1,8 +1,1 @@
-[
-{"id":1,"timestamp":"02:04:2022-23:04:15","nombre":"DON MALBEC 750 cc","codigo":"0001","precio":7209,"stock":20,"descripcion":"Vino Malbec - ","foto":"0001"}},
-{"id":2,"timestamp":"02:04:2022-23:05:20",
-{"id":4,"timestamp":"02:04:2022-23:06:25",
-{"id":5,"timestamp":"02:04:2022-23:07:35",
-{"id":6,"timestamp":"02:04:2022-23:08:355",
-{"id":8,"timestamp":"02:04:2022-23:09:45",}
-]
+[{"id":1,"timestamp":"02:04:2022-23:04:15","producto":{"id":1,"timestamp":"02:04:2022-23:04:15","nombre":"Vino Tinto Alambrado Bonarda x750cc","codigo":"0001","precio":756,"stock":20,"descripcion":"COMPOSICIÓN VARIETAL 100% Bonarda-ORIGEN Valle de Uco, Mendoza, Argentina","foto":"https://raw.githubusercontent.com/rubeneggel72/BE-Proyecto-1/main/img/0001.jpg"}},{"cant":4,"timestamp":"02:04:2022-18:02:59","producto":{"id":4,"timestamp":"02:04:2022-23:07:35","nombre":"Vino Tinto Clos du moulin x750cc","codigo":"0004","precio":460,"stock":48,"descripcion":"Marca: Clos du Moulin-CLOS DU MOULIN x750cc","foto":"https://raw.githubusercontent.com/rubeneggel72/BE-Proyecto-1/main/img/0004.jpg"},"id":2}]

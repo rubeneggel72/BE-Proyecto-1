@@ -18,10 +18,10 @@ global.arrayProductos = file("productos", "leer").then(function (value) {
 
   return value
 }, function (reason) {
-  console.log("ERROR:No se pude leer archivo"); 
+  console.log("ERROR:No se pude leer archivo");
 })
-global.arrayCarrito = file("productos", "leer").then(function (value) {
-  arrayProductos = value
+global.arrayCarrito = file("carrito", "leer").then(function (value) {
+  arrayCarrito = value
 
   return value
 }, function (reason) {
@@ -33,8 +33,8 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json());
-app.use('/productos', require('../rutas/api-productos'))
-app.use('/carrito', require('../rutas/api-carrito'))
+app.use('/api/productos', require('../rutas/api-productos'))
+app.use('/api/carrito', require('../rutas/api-carrito'))
 app.use('/', router)
 
 module.exports = administrador
